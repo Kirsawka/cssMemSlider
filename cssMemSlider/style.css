@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 
 body {
@@ -11,6 +11,31 @@ body {
 }
 
 .container {
-    width: 50%;
-    border: 1px solid red;
+    width: 70%;
+}
+
+.slider {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider__nav {
+    text-align: center;
+}
+
+.slider__link {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 15px solid white;
+    background-color: black;
+    display: inline-block;
 }
