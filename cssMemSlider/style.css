@@ -1,19 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap');
+
+body {
+    font-family: 'Mulish', sans-serif;
+    background-color: #24292f;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 .container {
-    width: 70rem;
-    /*height: 50rem;*/
-    margin: 0 auto;
+    max-width: 60rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 0.7rem;
 }
 
 .slider {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    width: 40rem;
+    max-width: 40rem;
+    width: 100%;
     margin: 0 auto;
 }
 
 .slide {
-    /*z-index: 1;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,7 +38,8 @@
 .item1, .item2, .item3, .item4, .item5, .item6 {
     grid-area: 1 / 1 / 4 / 4;
     opacity: 0;
-    transform: scale(0);
+    transform: scaleZ(0);
+    width: 100%;
 }
 
 .item7 {
@@ -36,8 +52,7 @@
 }
 
 .slider__img {
-    width: 35rem;
-    margin: 0 auto;
+    width: 100%;
     display: block;
 }
 
@@ -45,17 +60,31 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    border: 0.5rem solid white;
-    background-color: black;
+    border: 0.5rem solid #24292f;
+    background-color: white;
+    transition: .5s;
+}
+
+.slider__link:hover {
+    background: rosybrown
+}
+
+#slide-1:target ~ .item7 a[href="#slide-1"],
+#slide-2:target ~ .item7 a[href="#slide-2"],
+#slide-3:target ~ .item7 a[href="#slide-3"],
+#slide-4:target ~ .item7 a[href="#slide-4"],
+#slide-5:target ~ .item7 a[href="#slide-5"],
+#slide-6:target ~ .item7 a[href="#slide-6"] {
+    background-color: brown;
 }
 
 .slider__text {
-    max-width: 25rem;
+    max-width: 20rem;
     font-size: 1.2rem;
     margin: 1rem 0 0;
 }
 
 #slide-1:target, #slide-2:target, #slide-3:target, #slide-4:target, #slide-5:target, #slide-6:target {
     opacity: 1;
-    transform: scale(1);
+    transform: scaleZ(1);
 }
