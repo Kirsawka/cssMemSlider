@@ -2,21 +2,21 @@
 
 body {
     font-family: 'Mulish', sans-serif;
-    background-color: #24292f;
-    color: white;
+    overflow: hidden;
+    margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    background-color: #24292f;
+    color: #ffffff;
 }
 
 .container {
-    max-width: 60rem;
-    width: 100%;
     box-sizing: border-box;
     padding: 1rem;
-    border-radius: 0.7rem;
+    width: 100%;
+    display: flex;
 }
 
 .slider {
@@ -29,36 +29,46 @@ body {
 }
 
 .slide {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: 0.8s;
-}
-
-.item1, .item2, .item3, .item4, .item5, .item6 {
     grid-area: 1 / 1 / 4 / 4;
     opacity: 0;
     transform: scaleZ(0);
-    width: 100%;
+    transition: 0.8s;
 }
 
-.item7 {
+.mask {
+    opacity: 1;
+    transform: scaleZ(1);
+}
+
+.slider__nav {
     grid-area: 3 / 3 / 4 / 4;
     z-index: 3;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+    transition: 0.8s;
 }
 
 .slider__img {
     width: 100%;
     display: block;
+    border-radius: 0.7rem;
+}
+
+.slider__text {
+    max-width: 49%;
+    font-size: 1.2rem;
+    margin: 1rem 0 0.25rem;
 }
 
 .slider__link {
-    width: 1rem;
-    height: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
     border-radius: 50%;
     border: 0.5rem solid #24292f;
     background-color: white;
@@ -66,25 +76,79 @@ body {
 }
 
 .slider__link:hover {
-    background: rosybrown
+    background: rosybrown;
 }
 
-#slide-1:target ~ .item7 a[href="#slide-1"],
-#slide-2:target ~ .item7 a[href="#slide-2"],
-#slide-3:target ~ .item7 a[href="#slide-3"],
-#slide-4:target ~ .item7 a[href="#slide-4"],
-#slide-5:target ~ .item7 a[href="#slide-5"],
-#slide-6:target ~ .item7 a[href="#slide-6"] {
-    background-color: brown;
+.slider__link:active {
+    background: rebeccapurple;
 }
 
-.slider__text {
-    max-width: 20rem;
-    font-size: 1.2rem;
-    margin: 1rem 0 0;
+.slider__link:first-child {
+    background-color: #59855e;
+}
+
+.slider__link:first-child:hover {
+    background-color: lightsteelblue;
+}
+
+.slider__link:first-child:active {
+    background-color: rebeccapurple;
+}
+
+#slide-2:target ~ .slider__nav a[href="#slide-1"],
+#slide-3:target ~ .slider__nav a[href="#slide-1"],
+#slide-4:target ~ .slider__nav a[href="#slide-1"],
+#slide-5:target ~ .slider__nav a[href="#slide-1"],
+#slide-6:target ~ .slider__nav a[href="#slide-1"] {
+    background-color: white;
+}
+
+#slide-2:target ~ .slider__nav a[href="#slide-1"]:hover,
+#slide-3:target ~ .slider__nav a[href="#slide-1"]:hover,
+#slide-4:target ~ .slider__nav a[href="#slide-1"]:hover,
+#slide-5:target ~ .slider__nav a[href="#slide-1"]:hover,
+#slide-6:target ~ .slider__nav a[href="#slide-1"]:hover {
+    background: rosybrown;
+}
+
+#slide-1:target ~ .slider__nav a[href="#slide-1"],
+#slide-2:target ~ .slider__nav a[href="#slide-2"],
+#slide-3:target ~ .slider__nav a[href="#slide-3"],
+#slide-4:target ~ .slider__nav a[href="#slide-4"],
+#slide-5:target ~ .slider__nav a[href="#slide-5"],
+#slide-6:target ~ .slider__nav a[href="#slide-6"] {
+    background-color: #59855e;
+}
+
+#slide-1:target ~ .slider__nav a[href="#slide-1"]:hover,
+#slide-2:target ~ .slider__nav a[href="#slide-2"]:hover,
+#slide-3:target ~ .slider__nav a[href="#slide-3"]:hover,
+#slide-4:target ~ .slider__nav a[href="#slide-4"]:hover,
+#slide-5:target ~ .slider__nav a[href="#slide-5"]:hover,
+#slide-6:target ~ .slider__nav a[href="#slide-6"]:hover {
+    background-color: lightsteelblue;
+}
+
+#slide-1:target ~ .slider__nav a[href="#slide-1"]:active,
+#slide-2:target ~ .slider__nav a[href="#slide-2"]:active,
+#slide-3:target ~ .slider__nav a[href="#slide-3"]:active,
+#slide-4:target ~ .slider__nav a[href="#slide-4"]:active,
+#slide-5:target ~ .slider__nav a[href="#slide-5"]:active,
+#slide-6:target ~ .slider__nav a[href="#slide-6"]:active {
+    background-color: rebeccapurple;
 }
 
 #slide-1:target, #slide-2:target, #slide-3:target, #slide-4:target, #slide-5:target, #slide-6:target {
     opacity: 1;
     transform: scaleZ(1);
+}
+
+#slide-1:target ~ .mask,
+#slide-2:target ~ .mask,
+#slide-3:target ~ .mask,
+#slide-4:target ~ .mask,
+#slide-5:target ~ .mask,
+#slide-6:target ~ .mask {
+    opacity: 0;
+    transform: scaleZ(0);
 }
